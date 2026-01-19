@@ -6,5 +6,5 @@ import HomePage from './features/marketing/ui/pages/HomePage.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HomePage />
-  </StrictMode>,
+  </StrictMode>
 )

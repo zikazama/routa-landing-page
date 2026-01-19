@@ -1,30 +1,26 @@
-import style from './HomePage.module.css';
+import style from './HomePage.module.css'
+import NavBar from '../components/Navbar.component'
+import Button from '../components/Button.component'
 
 export default function HomePage() {
   return (
     <>
-      <nav className={style.navbar}>
-        <strong>Routa</strong>
-        <div className={style['nav-links']}>
-          <a href="#">Cara Kerja</a>
-          <a href="#">Fitur</a>
-          <a href="#">Langganan</a>
-        </div>
-        <div className={style['nav-actions']}>
-          <button className={`${style.btn} ${style['btn-outline']}`}>Masuk</button>
-          <button className={`${style.btn} ${style['btn-primary']}`}>Mulai Coba Gratis</button>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* Hero */}
       <div className={style.hero}>
         <div className={style['hero-inner']}>
           <div>
-            <h1>Stop Searching. <span>Start Learning.</span></h1>
-            <p>Buat peta jalan belajar pribadi yang disesuaikan dengan tujuan karier dan tingkat pemahamanmu.</p>
+            <h1>
+              Stop Searching. <span>Start Learning.</span>
+            </h1>
+            <p>
+              Buat peta jalan belajar pribadi yang disesuaikan dengan tujuan karier dan tingkat
+              pemahamanmu.
+            </p>
             <div className={style['hero-input']}>
               <input type="text" placeholder="Apa yang ingin kamu pelajari?" />
-              <button className={`${style.btn} ${style['btn-primary']}`}>Generate Roadmap</button>
+              <Button variant="primary">Generate Roadmap</Button>
             </div>
           </div>
           <div className={style['placeholder-img']}></div>
@@ -63,7 +59,11 @@ export default function HomePage() {
         <div className={`${style['section-inner']} ${style.features}`}>
           <div>
             <h2>Fitur Utama</h2>
-            <p><strong>01 Bukan sekadar daftar biasa</strong><br />AI membantu roadmap belajar relevan dan terarah.</p>
+            <p>
+              <strong>01 Bukan sekadar daftar biasa</strong>
+              <br />
+              AI membantu roadmap belajar relevan dan terarah.
+            </p>
           </div>
           <div className={style['feature-images']}>
             <div className={style['placeholder-img']}></div>
@@ -86,7 +86,7 @@ export default function HomePage() {
                 <li>✓ Akses ke topik</li>
                 <li>✓ Pantau progres</li>
               </ul>
-              <button className={`${style.btn} ${style['btn-outline']}`}>Mulai Gratis</button>
+              <Button variant="outline">Mulai Gratis</Button>
             </div>
 
             <div className={`${style['price-card']} ${style.pro}`}>
@@ -98,7 +98,7 @@ export default function HomePage() {
                 <li>✓ Pantau progres</li>
                 <li>✓ Dukungan dasar</li>
               </ul>
-              <button className={`${style.btn} ${style['btn-primary']}`}>Upgrade ke Pro</button>
+              <Button variant="primary">Upgrade ke Pro</Button>
             </div>
 
             <div className={style['price-card']}>
@@ -108,7 +108,7 @@ export default function HomePage() {
                 <li>✓ Analitik anggota</li>
                 <li>✓ Dukungan prioritas</li>
               </ul>
-              <button className={`${style.btn} ${style['btn-outline']}`}>Kontak Kami</button>
+              <Button variant="outline">Kontak Kami</Button>
             </div>
           </div>
         </div>
@@ -122,17 +122,29 @@ export default function HomePage() {
             <p>Menghubungkan kekuatan pembelajaran menjadi nilai nyata.</p>
           </div>
           <div>
-            <strong>Produk</strong><br />Fitur<br />Harga
+            <strong>Produk</strong>
+            <br />
+            Fitur
+            <br />
+            Harga
           </div>
           <div>
-            <strong>Perusahaan</strong><br />Tentang Kami<br />Kontak
+            <strong>Perusahaan</strong>
+            <br />
+            Tentang Kami
+            <br />
+            Kontak
           </div>
           <div>
-            <strong>Hukum</strong><br />Privasi<br />Syarat & Ketentuan
+            <strong>Hukum</strong>
+            <br />
+            Privasi
+            <br />
+            Syarat & Ketentuan
           </div>
         </div>
         <div className={style.copyright}>© 2026 Routa AI. All rights reserved.</div>
       </footer>
     </>
-  );
+  )
 }
