@@ -23,7 +23,6 @@ export default function HomePage() {
               <Button variant="primary">Generate Roadmap</Button>
             </div>
           </div>
-          <div className={style['placeholder-img']}></div>
         </div>
       </div>
 
@@ -58,7 +57,7 @@ export default function HomePage() {
       <section>
         <div className={`${style['section-inner']} ${style.features}`}>
           <div>
-            <h2>Fitur Utama</h2>
+            <h2 className={style['section-title']}>Fitur Utama</h2>
             <p>
               <strong>01 Bukan sekadar daftar biasa</strong>
               <br />

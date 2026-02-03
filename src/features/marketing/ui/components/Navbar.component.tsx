@@ -12,7 +12,7 @@ export default function NavBar() {
   return (
     <nav className={style.navbar}>
       <a href="/">
-        <img src="../../../../public/logo-routa.webp" alt="Routa Logo" className={style.logo} />
+        <img src="../../../../logo-routa.webp" alt="Routa Logo" className={style.logo} />
       </a>
 
       {/* Desktop Navigation */}
