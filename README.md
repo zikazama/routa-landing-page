@@ -1,73 +1,213 @@
-# React + TypeScript + Vite
+# Frontend Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a React frontend application built using a feature-based architecture with a strong emphasis on separation of concerns.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The architecture aims to provide:
 
-## React Compiler
+- Consistent structure across the codebase
+- Clear ownership of logic
+- High maintainability and scalability
+- Easy onboarding for new developers
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Core Principles
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Feature-driven development
+- One responsibility per file
+- Explicit conventions over personal preferences
+- UI is not business logic
+- Tooling should enforce rules whenever possible
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Coding Standards & Conventions
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### File Naming
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React Components must use PascalCase  
+  UserCard.tsx  
+  LoginForm.tsx
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Custom Hooks must start with `use`  
+  useAuth.ts  
+  useDebounce.ts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Use Cases / Business Logic must use `.usecase.ts`  
+  login.usecase.ts  
+  fetchDashboardStats.usecase.ts
+
+- Other files use camelCase  
+  authService.ts  
+  tokenStorage.ts
+
+---
+
+### One File, One Responsibility
+
+- Each file must have a single, clear purpose
+- Do not mix UI, business logic, and data access in one file
+
+---
+
+### Import Rules
+
+- Use absolute imports
+
+  import { Button } from '@/shared/ui/Button'
+
+- Dependency direction:
+  domain → data → ui
+
+- UI must not depend directly on data implementations
+
+---
+
+### React Component Rules
+
+- Function components only
+- No API calls inside components
+- No business logic inside UI
+- Data flows through props
+
+---
+
+### State Management
+
+- Global state is reserved for:
+  - authentication
+  - user session
+  - app-wide configuration
+- Prefer local state whenever possible
+
+---
+
+### Styling Rules
+
+- Use a single styling strategy consistently
+- Avoid inline styles except for small dynamic values
+- Do not hardcode colors or spacing values
+
+---
+
+## Folder Structure
+
+src/
+├── app/
+│ ├── providers/
+│ ├── router/
+│ └── store/
+│
+├── features/
+│ ├── auth/
+│ │ ├── domain/
+│ │ ├── data/
+│ │ ├── ui/
+│ │
+│ ├── dashboard/
+│ │ ├── domain/
+│ │ ├── data/
+│ │ ├── ui/
+│
+├── shared/
+│ ├── ui/
+│ ├── hooks/
+│ ├── utils/
+│ ├── types/
+│ └── constants/
+│
+├── lib/
+│ ├── http/
+│ ├── storage/
+│ └── config/
+│
+├── assets/
+│ ├── icons/
+│ └── images/
+│
+├── styles/
+
+---
+
+## Folder Responsibilities
+
+### app/
+
+Application-level configuration.
+
+- providers: global providers (theme, auth, query, etc.)
+- router: routing configuration
+- store: global state setup
+
+---
+
+### features/
+
+Self-contained feature modules.
+
+Each feature contains:
+
+- domain: business rules and use cases
+- data: API calls, repositories, mappers
+- ui: pages, components, feature-specific hooks
+
+Rules:
+
+- Features must not import from other features
+- Shared logic must live in shared/
+
+---
+
+### shared/
+
+Reusable code across the application.
+
+- ui: shared UI components
+- hooks: reusable hooks
+- utils: helper functions
+- types: global TypeScript types
+- constants: global constants
+
+---
+
+### lib/
+
+Abstractions for external services.
+
+- http: HTTP client setup
+- storage: browser storage utilities
+- config: environment configuration
+
+---
+
+### assets/
+
+Static files such as icons and images.
+
+---
+
+### styles/
+
+Global styling resources:
+
+- resets
+- variables
+- themes
+- base typography
+
+---
+
+## Prohibited Patterns
+
+- API calls inside UI components
+- Business logic in UI layer
+- Cross-feature imports
+- Unclear file naming or mixed responsibilities
+
+---
+
+## Final Goal
+
+The codebase should be easy to read, easy to test, easy to extend, and difficult to accidentally break.
