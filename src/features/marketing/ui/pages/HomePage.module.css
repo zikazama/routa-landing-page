@@ -95,10 +95,8 @@ section {
 /* Steps */
 .steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
-
 .card {
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -117,18 +115,15 @@ section {
 /* Features */
 .features {
   display: grid;
-  grid-template-columns: 1fr 2fr;
   gap: 40px;
   align-items: center;
 }
 /* Pricing */
 .pricing {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 48px;
 }
-
 .price-card {
   border: 1px solid #e5e7eb;
   border-radius: 20px;
@@ -175,11 +170,19 @@ footer {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
   font-size: 14px;
 }
 
+@media (width >= 48rem) {
+  .steps,
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 .copyright {
   text-align: center;
   margin-top: 40px;
