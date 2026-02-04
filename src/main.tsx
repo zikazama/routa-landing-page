@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import ComingSoon from './features/marketing/ui/pages/ComingSoon'
+import App from './App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ComingSoon />
+    <App />
   </StrictMode>
 )
