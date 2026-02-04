@@ -14,10 +14,10 @@ export default function HomePage() {
             <h1>
               Stop Searching. <span>Start Learning.</span>
             </h1>
-            <p>
+            <div>
               Buat peta jalan belajar pribadi yang disesuaikan dengan tujuan karier dan tingkat
               pemahamanmu.
-            </p>
+            </div>
             <div className={style['hero-input']}>
               <input type="text" placeholder="Apa yang ingin kamu pelajari?" />
               <Button variant="primary">Generate Roadmap✨</Button>
@@ -67,12 +67,14 @@ export default function HomePage() {
 
       {/* Features */}
       <section>
+        <h2 className={style['section-title']}>Fitur Utama</h2>
         <div className={`${style['section-inner']} ${style.features}`}>
-          <h2 className={style['section-title']}>Fitur Utama</h2>
-          <div>
-            <div>
+          <div className={style.feature}>
+            <div className={style['feature-text']}>
               <p>
-                <strong>01 Bukan sekadar daftar biasa</strong>
+                <strong>01</strong>
+                <br />
+                <strong>Bukan sekadar daftar biasa</strong>
                 <br />
                 AI membantu roadmap belajar relevan dan terarah.
               </p>
@@ -85,7 +87,7 @@ export default function HomePage() {
               />
             </div>
           </div>
-          <div>
+          <div className={`${style.feature} ${style.reverse}`}>
             <div>
               <p>
                 <strong>02 Konten terbaik, teragregasi</strong>

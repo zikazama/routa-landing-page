@@ -25,10 +25,11 @@ a {
 .hero-inner {
   max-width: 1200px;
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 40px;
+  text-align: center;
 }
 
 .hero h1 {
@@ -39,17 +40,18 @@ a {
 .hero h1 span {
   color: #42c2cf;
 }
-
-.hero p {
-  max-width: 480px;
-  margin-bottom: 24px;
-  color: #4b5563;
-}
-
 .hero-input {
   display: flex;
-  gap: 8px;
   max-width: 520px;
+  margin: auto;
+  position: relative;
+}
+.hero-input button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 999px;
 }
 
 .hero-input input {
@@ -184,13 +186,30 @@ footer {
   font-size: 12px;
   color: #6b7280;
 }
-
+.feature strong {
+  font-size: 22px;
+}
+@media (min-width: 768px) {
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .feature div {
+    flex: 1;
+  }
+  .feature .feature-text {
+    flex: 0;
+    width: 14rem;
+    flex-basis: auto;
+  }
+  .feature.reverse {
+    flex-direction: row-reverse;
+  }
+}
 @media (max-width: 900px) {
   .hero-inner,
-  .features,
-  .steps,
-  .pricing,
-  .footer-inner {
+  .features {
     grid-template-columns: 1fr;
   }
 }
