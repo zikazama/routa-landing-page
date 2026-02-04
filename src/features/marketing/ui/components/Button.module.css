@@ -9,10 +9,16 @@
 .btn-outline {
   border: 1px solid #d1d5db;
   background: transparent;
+  color: #42c2cf;
+}
+.btn-outline:hover {
+  background: #42c2cf;
+  color: white;
+  border: none;
 }
 
 .btn-primary {
-  background: #22c1c3;
+  background: #42c2cf;
   color: white;
   border: none;
 }

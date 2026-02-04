@@ -20,7 +20,7 @@ export default function HomePage() {
             </p>
             <div className={style['hero-input']}>
               <input type="text" placeholder="Apa yang ingin kamu pelajari?" />
-              <Button variant="primary">Generate Roadmap</Button>
+              <Button variant="primary">Generate Roadmap✨</Button>
             </div>
           </div>
         </div>
@@ -35,17 +35,29 @@ export default function HomePage() {
           </div>
           <div className={style.steps}>
             <div className={style.card}>
-              <div className={style.icon}></div>
+              <img
+                className={style.icon}
+                src="../../../../../icon-1.webp"
+                alt="Beritahu kami profilmu untuk menyesuaikan jalur belajar."
+              />
               <h4>01 Atur Profilmu</h4>
               <p>Beritahu kami profilmu untuk menyesuaikan jalur belajar.</p>
             </div>
             <div className={style.card}>
-              <div className={style.icon}></div>
+              <img
+                className={style.icon}
+                src="../../../../../icon-2.webp"
+                alt="Dapatkan roadmap dari konten terbaik YouTube & TikTok."
+              />
               <h4>02 Kurasi Ajaib</h4>
               <p>Dapatkan roadmap dari konten terbaik YouTube & TikTok.</p>
             </div>
             <div className={style.card}>
-              <div className={style.icon}></div>
+              <img
+                className={style.icon}
+                src="../../../../../icon-3.webp"
+                alt="Tonton dan pelajari setiap tahap secara terstruktur."
+              />
               <h4>03 Mulai Belajar</h4>
               <p>Tonton dan pelajari setiap tahap secara terstruktur.</p>
             </div>
@@ -56,17 +68,45 @@ export default function HomePage() {
       {/* Features */}
       <section>
         <div className={`${style['section-inner']} ${style.features}`}>
+          <h2 className={style['section-title']}>Fitur Utama</h2>
           <div>
-            <h2 className={style['section-title']}>Fitur Utama</h2>
-            <p>
-              <strong>01 Bukan sekadar daftar biasa</strong>
-              <br />
-              AI membantu roadmap belajar relevan dan terarah.
-            </p>
+            <div>
+              <p>
+                <strong>01 Bukan sekadar daftar biasa</strong>
+                <br />
+                AI membantu roadmap belajar relevan dan terarah.
+              </p>
+            </div>
+            <div className={style['feature-images']}>
+              <img
+                src="../../../../../fitur-utama-1.webp"
+                className={style['placeholder-img']}
+                alt="AI membantu roadmap belajar relevan dan terarah."
+              />
+            </div>
           </div>
-          <div className={style['feature-images']}>
-            <div className={style['placeholder-img']}></div>
-            <div className={style['placeholder-img']}></div>
+          <div>
+            <div>
+              <p>
+                <strong>02 Konten terbaik, teragregasi</strong>
+                <br />
+                Video relevan dari YouTube dan TikTok dikumpulkan di satu tempat.
+              </p>
+            </div>
+            <div>
+              <p>
+                <strong>03 Pantau progres sesuai caramu</strong>
+                <br />
+                Pantau kemajuanmu selangkah demi selangkah dan ekspor jalur belajarmu ke format PDF.
+              </p>
+            </div>
+            <div className={style['feature-images']}>
+              <img
+                src="../../../../../fitur-utama-2.webp"
+                className={style['placeholder-img']}
+                alt="Pantau kemajuanmu selangkah demi selangkah dan ekspor jalur belajarmu ke format PDF."
+              />
+            </div>
           </div>
         </div>
       </section>

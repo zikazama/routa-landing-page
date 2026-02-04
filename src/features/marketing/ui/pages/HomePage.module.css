@@ -37,7 +37,7 @@ a {
 }
 
 .hero h1 span {
-  color: #22c1c3;
+  color: #42c2cf;
 }
 
 .hero p {
@@ -56,7 +56,12 @@ a {
   flex: 1;
   padding: 14px 16px;
   border-radius: 999px;
+  background: #ffffff;
   border: 1px solid #d1d5db;
+}
+.hero-input input:active {
+  outline: none;
+  border-color: #42c2cf;
 }
 
 .placeholder-img {
@@ -68,7 +73,7 @@ a {
 
 /* Section */
 section {
-  padding: 80px 20px;
+  padding: 40px 20px;
 }
 
 .section-inner {
@@ -78,7 +83,6 @@ section {
 
 .section-title {
   text-align: center;
-  margin-bottom: 48px;
 }
 
 .section-title h2 {
@@ -115,13 +119,6 @@ section {
   gap: 40px;
   align-items: center;
 }
-
-.feature-images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
 /* Pricing */
 .pricing {
   display: grid;
@@ -138,9 +135,10 @@ section {
 }
 
 .price-card.pro {
-  border: 2px solid #22c1c3;
+  border: 2px solid #42c2cf;
   background: #f0fdff;
   position: relative;
+  overflow: auto;
 }
 
 .badge {
@@ -148,7 +146,7 @@ section {
   top: 16px;
   right: -40px;
   transform: rotate(45deg);
-  background: #22c1c3;
+  background: #42c2cf;
   color: white;
   padding: 4px 40px;
   font-size: 12px;
