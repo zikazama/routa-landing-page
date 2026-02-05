@@ -1,6 +1,7 @@
 import styles from './LoginPage.module.css'
 import Input from '../../../../shared/ui/Input/Input.component'
 import Button from '../../../../shared/ui/Button/Button.component'
+import ImageSlider from '../../../../shared/ui/ImageSlider/ImageSlider.component'
 
 export default function LoginPage() {
   return (
@@ -48,15 +49,14 @@ export default function LoginPage() {
       </div>
 
       <aside className={styles.visual}>
-        <div className={styles.imagePlaceholder}>
-          Image Placeholder
-          <span className={styles.placeholderHint}>Illustration Area</span>
-        </div>
-        <div className={styles.dots}>
-          <span className={styles.dotActive} aria-hidden="true"></span>
-          <span className={styles.dot} aria-hidden="true"></span>
-          <span className={styles.dot} aria-hidden="true"></span>
-        </div>
+        <ImageSlider
+          images={[
+            '../../../../../login.webp',
+            '../../../../../register.webp',
+            '../../../../../gallery-2.webp',
+          ]}
+          interval={5000}
+        />
       </aside>
     </div>
   )
