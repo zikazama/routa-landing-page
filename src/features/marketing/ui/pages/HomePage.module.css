@@ -1,22 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, Arial, sans-serif;
-}
-
-body {
-  color: #1f2937;
-  background: #ffffff;
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Hero */
+/* Hero Section */
 .hero {
   background: linear-gradient(180deg, #ecfeff, #ffffff);
   padding: 60px 20px;
@@ -40,18 +22,12 @@ a {
 .hero h1 span {
   color: #42c2cf;
 }
+
 .hero-input {
   display: flex;
   max-width: 520px;
   margin: auto;
   position: relative;
-}
-.hero-input button {
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
-  border-radius: 999px;
 }
 
 .hero-input input {
@@ -61,9 +37,18 @@ a {
   background: #ffffff;
   border: 1px solid #d1d5db;
 }
+
 .hero-input input:active {
   outline: none;
   border-color: #42c2cf;
+}
+
+.hero-input button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 999px;
 }
 
 .placeholder-img {
@@ -98,6 +83,7 @@ section {
   display: grid;
   gap: 24px;
 }
+
 .card {
   border: 1px solid #e5e7eb;
   border-radius: 16px;
@@ -114,17 +100,29 @@ section {
 }
 
 /* Features */
+.featuresSection {
+  background: #f8f8f8;
+  margin: 0;
+  max-width: 100%;
+}
+
 .features {
   display: grid;
   gap: 40px;
   align-items: center;
 }
+
+.feature strong {
+  font-size: 22px;
+}
+
 /* Pricing */
 .pricing {
   display: grid;
   gap: 24px;
   margin-top: 48px;
 }
+
 .price-card {
   border: 1px solid #e5e7eb;
   border-radius: 20px;
@@ -139,17 +137,6 @@ section {
   overflow: hidden;
 }
 
-.badge {
-  position: absolute;
-  top: 16px;
-  right: -40px;
-  transform: rotate(45deg);
-  background: #42c2cf;
-  color: white;
-  padding: 4px 40px;
-  font-size: 12px;
-}
-
 .price-card ul {
   list-style: none;
   margin: 24px 0;
@@ -159,6 +146,17 @@ section {
 
 .price-card li {
   margin-bottom: 10px;
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  right: -40px;
+  transform: rotate(45deg);
+  background: #42c2cf;
+  color: white;
+  padding: 4px 40px;
+  font-size: 12px;
 }
 
 /* Footer */
@@ -175,43 +173,6 @@ footer {
   font-size: 14px;
 }
 
-@media (width >= 48rem) {
-  .steps,
-  .pricing {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .footer-inner {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (width >= 64rem) {
-  .pricing,
-  .footer-inner {
-    max-width: 48rem;
-    margin: auto;
-  }
-  .hero {
-    background-image: url('../../../../../hero-background.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 13rem;
-    padding: 2rem 20px;
-  }
-  .hero h1 {
-    font-size: 28px;
-  }
-  .hero-inner {
-    max-width: 38rem;
-  }
-  section {
-    max-width: 48rem;
-    margin: auto;
-  }
-  .section-inner {
-    max-width: 48rem;
-  }
-}
 .copyright {
   text-align: center;
   margin-top: 40px;
@@ -220,35 +181,73 @@ footer {
   border-top: 1px solid #cecece;
   padding-top: 1rem;
 }
-.feature strong {
-  font-size: 22px;
-}
-@media (min-width: 768px) {
-  .feature {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .feature div {
-    flex: 1;
-  }
-  .feature .feature-text {
-    flex: 0;
-    width: 14rem;
-    flex-basis: auto;
-  }
-  .feature.reverse {
-    flex-direction: row-reverse;
-  }
-}
+
+/* Mobile Breakpoint (max 900px) */
 @media (max-width: 900px) {
   .hero-inner,
   .features {
     grid-template-columns: 1fr;
   }
 }
-.featuresSection {
-  background: #f8f8f8;
-  margin: 0;
-  max-width: 100%;
+
+/* Tablet Breakpoint (768px) */
+@media (width >= 48rem) {
+  .steps,
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .feature div {
+    flex: 1;
+  }
+
+  .feature .feature-text {
+    flex: 0;
+    width: 14rem;
+    flex-basis: auto;
+  }
+
+  .feature.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Desktop Breakpoint (1024px) */
+@media (width >= 64rem) {
+  .hero {
+    background-image: url('../../../../../hero-background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 13rem;
+    padding: 2rem 20px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-inner {
+    max-width: 38rem;
+  }
+
+  .section-inner {
+    max-width: 48rem;
+  }
+
+  .pricing,
+  .footer-inner {
+    max-width: 48rem;
+    margin: auto;
+  }
 }
