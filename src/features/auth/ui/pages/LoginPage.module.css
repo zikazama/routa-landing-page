@@ -142,17 +142,12 @@
   background: #1f2937;
 }
 
-@media (min-width: 768px) {
-  .page {
-    background: #ffffff;
-  }
-
+@media (width >= 48rem) {
   .card {
-    max-width: 420px;
+    width: 30rem;
     margin: 0 auto;
     padding: 48px 40px;
     border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(17, 24, 39, 0.08);
   }
 }
 
