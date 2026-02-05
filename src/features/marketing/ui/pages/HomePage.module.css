@@ -85,6 +85,7 @@ section {
 
 .section-title {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .section-title h2 {
@@ -135,7 +136,7 @@ section {
   border: 2px solid #42c2cf;
   background: #f0fdff;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .badge {
@@ -162,7 +163,7 @@ section {
 
 /* Footer */
 footer {
-  background: #f9fafb;
+  background: #f8feff;
   padding: 60px 20px 20px;
 }
 
@@ -183,11 +184,41 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+@media (width >= 64rem) {
+  .pricing,
+  .footer-inner {
+    max-width: 48rem;
+    margin: auto;
+  }
+  .hero {
+    background-image: url('../../../../../hero-background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 13rem;
+    padding: 2rem 20px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero-inner {
+    max-width: 38rem;
+  }
+  section {
+    max-width: 48rem;
+    margin: auto;
+  }
+  .section-inner {
+    max-width: 48rem;
+  }
+}
 .copyright {
   text-align: center;
   margin-top: 40px;
   font-size: 12px;
   color: #6b7280;
+  border-top: 1px solid #cecece;
+  padding-top: 1rem;
 }
 .feature strong {
   font-size: 22px;
@@ -215,4 +246,9 @@ footer {
   .features {
     grid-template-columns: 1fr;
   }
+}
+.featuresSection {
+  background: #f8f8f8;
+  margin: 0;
+  max-width: 100%;
 }

@@ -15,8 +15,8 @@ export default function HomePage() {
               Stop Searching. <span>Start Learning.</span>
             </h1>
             <div>
-              Buat peta jalan belajar pribadi yang disesuaikan dengan tujuan karier dan tingkat
-              pemahamanmu.
+              Buat peta jalan belajar (learning roadmap) pribadi yang disesuaikan dengan tujuan
+              karier dan tingkat pengalamanmu. Didukung oleh AI & video pilihan.
             </div>
             <div className={style['hero-input']}>
               <input type="text" placeholder="Apa yang ingin kamu pelajari?" />
@@ -66,7 +66,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section>
+      <section className={style.featuresSection}>
         <h2 className={style['section-title']}>Fitur Utama</h2>
         <div className={`${style['section-inner']} ${style.features}`}>
           <div className={style.feature}>

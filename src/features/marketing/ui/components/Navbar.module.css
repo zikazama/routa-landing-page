@@ -1,3 +1,6 @@
+a {
+  font-weight: bold;
+}
 /* Mobile-first approach */
 .navbar {
   max-width: 1200px;
