@@ -44,7 +44,7 @@ export default function LoginPage() {
         </form>
 
         <p className={styles.signup}>
-          Belum Punya Akun? <a href="#">Yuk Buat Sekarang</a>
+          Belum Punya Akun? <a href="/register">Yuk Buat Sekarang</a>
         </p>
       </div>
 
