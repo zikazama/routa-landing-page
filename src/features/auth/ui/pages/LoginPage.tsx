@@ -1,7 +1,6 @@
 import styles from './LoginPage.module.css'
-import Input from '../../../../shared/ui/Input/Input.component'
-import Button from '../../../../shared/ui/Button/Button.component'
 import ImageSlider from '../../../../shared/ui/ImageSlider/ImageSlider.component'
+import LoginForm from '../components/LoginForm/LoginForm'
 
 export default function LoginPage() {
   return (
@@ -16,36 +15,7 @@ export default function LoginPage() {
           <p className={styles.subtitle}>Silahkan login dengan akun routa kamu!</p>
         </div>
 
-        <form className={styles.form}>
-          <Input label="Email" placeholder="Email" type="email" />
-          <Input label="Password" placeholder="Password" type="password" />
-
-          <label className={styles.remember}>
-            <input type="checkbox" />
-            <span>Biarkan saya tetap masuk</span>
-          </label>
-
-          <Button type="submit" variant="primary">
-            Masuk
-          </Button>
-
-          <div className={styles.separator}>
-            <span>or</span>
-          </div>
-
-          <Button type="button" variant="google">
-            Masuk Dengan Google{' '}
-            <img
-              src="../../../../../google-icon.webp"
-              alt="Google Icon"
-              style={{ width: '1.5rem' }}
-            />
-          </Button>
-        </form>
-
-        <p className={styles.signup}>
-          Belum Punya Akun? <a href="/register">Yuk Buat Sekarang</a>
-        </p>
+        <LoginForm login={() => {}} isLoading={false} error={null} />
       </div>
 
       <aside className={styles.visual}>

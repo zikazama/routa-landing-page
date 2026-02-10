@@ -9,6 +9,7 @@ interface InputProps {
   value?: string
   onChange?: (value: string) => void
   required?: boolean
+  disabled?: boolean
 }
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -21,6 +22,7 @@ export default function Input({
   value,
   onChange,
   required = false,
+  disabled = false,
 }: InputProps) {
   const id = useId()
   const [internalValue, setInternalValue] = useState('')
@@ -67,6 +69,7 @@ export default function Input({
           onFocus={() => setIsFocused(true)}
           onBlur={handleBlur}
           required={required}
+          disabled={disabled}
         />
         <label
           htmlFor={id}
