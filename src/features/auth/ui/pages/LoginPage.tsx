@@ -1,8 +1,13 @@
 import styles from './LoginPage.module.css'
 import ImageSlider from '../../../../shared/ui/ImageSlider/ImageSlider.component'
 import LoginForm from '../components/LoginForm/LoginForm'
+import { useAuthUseCase } from '../hooks/authUseCase.context'
+import { useLogin } from '../hooks/useLogin.hook'
 
 export default function LoginPage() {
+  const loginUseCase = useAuthUseCase()
+  const { login, isLoading, error } = useLogin(loginUseCase)
+
   return (
     <div className={styles.page}>
       <div className={styles.card}>
@@ -15,7 +20,7 @@ export default function LoginPage() {
           <p className={styles.subtitle}>Silahkan login dengan akun routa kamu!</p>
         </div>
 
-        <LoginForm login={() => {}} isLoading={false} error={null} />
+        <LoginForm login={login} isLoading={isLoading} error={error} />
       </div>
 
       <aside className={styles.visual}>
