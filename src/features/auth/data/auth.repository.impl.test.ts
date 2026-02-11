@@ -1,15 +1,11 @@
-import axios from 'axios'
 import { describe, expect, it, vi } from 'vitest'
 import { AuthRepositoryImpl } from './auth.repository.impl'
 import type { LoginCredentials } from '../domain/login.entity'
 import type { LoginResponseDto } from './login.dto'
+import { httpPost } from '../../../lib/http'
 
-type AxiosPost = typeof axios.post
-
-vi.mock('axios', () => ({
-  default: {
-    post: vi.fn(),
-  },
+vi.mock('../../../lib/http', () => ({
+  httpPost: vi.fn(),
 }))
 
 describe('AuthRepositoryImpl', () => {
@@ -27,8 +23,8 @@ describe('AuthRepositoryImpl', () => {
   }
 
   it('posts credentials and returns mapped entity', async () => {
-    const post = axios.post as AxiosPost
-    post.mockResolvedValue({ data: dto })
+    const post = httpPost as ReturnType<typeof vi.fn>
+    post.mockResolvedValue(dto)
 
     const repository = new AuthRepositoryImpl()
 
@@ -43,7 +39,7 @@ describe('AuthRepositoryImpl', () => {
   })
 
   it('propagates errors from axios', async () => {
-    const post = axios.post as AxiosPost
+    const post = httpPost as ReturnType<typeof vi.fn>
     const error = new Error('Network error')
     post.mockRejectedValue(error)
 
