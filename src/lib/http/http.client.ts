@@ -1,54 +1,44 @@
-import axios, { AxiosError } from "axios";
-import { HttpError } from "./http.error";
+import axios, { AxiosError } from 'axios'
+import { HttpError } from './http.error'
 import type {
   HttpClient,
   HttpClientFactoryOptions,
   HttpRequestConfig,
   HttpResponse,
-} from "./http.types";
+} from './http.types'
 
-const DEFAULT_TIMEOUT_MS = 15000;
+const DEFAULT_TIMEOUT_MS = 15000
 
 function resolveBaseUrl(): string {
-  return (
-    import.meta.env.VITE_API_BASE_URL ||
-    import.meta.env.VITE_BASE_URL ||
-    ""
-  );
+  return import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_BASE_URL || ''
 }
 
-export function createHttpClient(
-  options: HttpClientFactoryOptions = {}
-): HttpClient {
+export function createHttpClient(options: HttpClientFactoryOptions = {}): HttpClient {
   const client = axios.create({
     baseURL: options.baseURL ?? resolveBaseUrl(),
     timeout: options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
     headers: options.headers,
-  });
+  })
 
   client.interceptors.response.use(
     (response) => response,
     (error: AxiosError) => {
       if (error.response) {
-        throw new HttpError(
-          error.message,
-          error.response.status,
-          error.response.data
-        );
+        throw new HttpError(error.message, error.response.status, error.response.data)
       }
-      throw new HttpError(error.message, null, null);
+      throw new HttpError(error.message, null, null)
     }
-  );
+  )
 
-  return client;
+  return client
 }
 
-export const httpClient = createHttpClient();
+export const httpClient = createHttpClient()
 
 export async function httpRequest<TResponse, TBody = unknown>(
   config: HttpRequestConfig<TBody>
 ): Promise<HttpResponse<TResponse>> {
-  return httpClient.request<TResponse, HttpResponse<TResponse>, TBody>(config);
+  return httpClient.request<TResponse, HttpResponse<TResponse>, TBody>(config)
 }
 
 export async function httpGet<TResponse>(
@@ -57,10 +47,10 @@ export async function httpGet<TResponse>(
 ): Promise<TResponse> {
   const response = await httpRequest<TResponse>({
     ...config,
-    method: "GET",
+    method: 'GET',
     url,
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 export async function httpPost<TResponse, TBody>(
@@ -70,11 +60,11 @@ export async function httpPost<TResponse, TBody>(
 ): Promise<TResponse> {
   const response = await httpRequest<TResponse, TBody>({
     ...config,
-    method: "POST",
+    method: 'POST',
     url,
     data: body,
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 export async function httpPut<TResponse, TBody>(
@@ -84,11 +74,11 @@ export async function httpPut<TResponse, TBody>(
 ): Promise<TResponse> {
   const response = await httpRequest<TResponse, TBody>({
     ...config,
-    method: "PUT",
+    method: 'PUT',
     url,
     data: body,
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 export async function httpPatch<TResponse, TBody>(
@@ -98,11 +88,11 @@ export async function httpPatch<TResponse, TBody>(
 ): Promise<TResponse> {
   const response = await httpRequest<TResponse, TBody>({
     ...config,
-    method: "PATCH",
+    method: 'PATCH',
     url,
     data: body,
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 export async function httpDelete<TResponse>(
@@ -111,16 +101,16 @@ export async function httpDelete<TResponse>(
 ): Promise<TResponse> {
   const response = await httpRequest<TResponse>({
     ...config,
-    method: "DELETE",
+    method: 'DELETE',
     url,
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 export function setHttpAuthToken(token: string | null): void {
   if (token) {
-    httpClient.defaults.headers.common.Authorization = `Bearer ${token}`;
+    httpClient.defaults.headers.common.Authorization = `Bearer ${token}`
   } else {
-    delete httpClient.defaults.headers.common.Authorization;
+    delete httpClient.defaults.headers.common.Authorization
   }
 }
